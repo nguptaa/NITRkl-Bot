@@ -15,8 +15,9 @@ def execute(msg, sender):
     print msg
     if (msg[0] in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']) and (msg[1] in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']):
         sender_db[sender] = {'section': msg[0], 'group': msg[1]}
+        pickle.dump(sender_db, open('database.db', 'wb'))
         return "You\'re now in the database!"
-        
+
     if sender in sender_db.keys():
         section = sender_db[sender]['section']
         group = sender_db[sender]['group']
