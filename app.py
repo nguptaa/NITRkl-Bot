@@ -1,24 +1,32 @@
 import os
 import sys
 import json
+import pickle
 
 import requests
 from flask import Flask, request
 
 app = Flask(__name__)
 
+sender_db = pickle.load('database.db')
+
+def execute(msg, sender):
+    msg = msg.split()
+    if msg[0] in 'ABCDE' and msg[1] in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+        sender_db[sender] = {section: msg[0], group: msg[1]}
+    if sender in sender_db.keys():
+        section = sender_db[sender][section]
+        group = sender_db[sender][group]
+
+        return "You are in section", section, 'and practical group', group
+
+    else:
+        return "Enter section and group in this format: \"S G\""
+
 
 @app.route('/', methods=['GET'])
 def verify():
-    # when the endpoint is registered as a webhook, it must echo back
-    # the 'hub.challenge' value it receives in the query arguments
-    if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
-        if not request.args.get("hub.verify_token") == os.environ["VERIFY_TOKEN"]:
-            return "Verification token mismatch", 403
-        return request.args["hub.challenge"], 200
-
-    return "Hey, Nikhil", 200
-
+    return request.args["hub.challenge"], 200
 
 @app.route('/', methods=['POST'])
 def webhook():
@@ -39,7 +47,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "Fuck off Vidit Dozer")
+                    send_message(sender_id, execute(message_text, sender_id))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
