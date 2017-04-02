@@ -19,7 +19,7 @@ def execute(msg, sender):
         section = sender_db[sender]['section']
         group = sender_db[sender]['group']
 
-        return "You are in section", section, 'and practical group', group
+        return "You are in section " + section + ' and practical group ' + group
 
     else:
         return "Enter section and group in this format: \"S G\""
