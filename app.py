@@ -8,7 +8,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-sender_db = pickle.load('database.db')
+sender_db = pickle.load(open('database.db', 'rb'))
 
 def execute(msg, sender):
     msg = msg.split()
