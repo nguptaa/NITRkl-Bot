@@ -22,6 +22,9 @@ curses = ['Hey! I don\'t think I deserve that',
           'I\'d never speak to you that way']
 
 def do(text, send):
+    sec = text.split()
+    if sec[0] in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] and sec[1] in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+        sender_db[send] = sec
     witClient = Wit(access_token='Z2M5NG4DUAOD3IH24BNQSXGM4LGIK4PU')
     wolframClient = wolframalpha.Client('5G696A-TT6AEK7L74')
     response = witClient.message(text)
@@ -37,5 +40,5 @@ def do(text, send):
         return wikipedia.summary(response['entities']['contact'][0]['value'], sentences=1)
     elif intent == 'curse':
         return random.choice(curses)
-    else:
+    elif:
         return 'I did not understand what you said.'
