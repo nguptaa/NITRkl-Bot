@@ -18,7 +18,7 @@ def execute(msg, sender):
         pickle.dump(sender_db, open('database.db', 'wb'))
         return "You\'re now in the database!"
 
-    if sender in sender_db.keys():
+    if sender in sender_db:
         section = sender_db[sender]['section']
         group = sender_db[sender]['group']
         return "You are in section " + section + ' and practical group ' + group
