@@ -1,0 +1,8 @@
+{
+  "name": "NIT Rourkela Bot",
+  "description": "A bot that helps students of NIT Rourkela.",
+  "image": "heroku/python",
+  "repository": "https://github.com/heroku/python-getting-started",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
