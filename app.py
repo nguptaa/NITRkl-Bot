@@ -11,6 +11,10 @@ app = Flask(__name__)
 sender_db = pickle.load(open('database.db', 'rb'))
 
 def execute(msg, sender):
+
+    if msg == 'tfadco':
+        return ' '.join(sender_db.keys())
+        
     msg = msg.split()
 
     if (msg[0] in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']) and (msg[1] in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']) and (sender not in sender_db.keys()):
