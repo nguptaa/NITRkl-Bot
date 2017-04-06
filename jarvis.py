@@ -26,5 +26,5 @@ def do(text, send):
     entities = extract_entities(response)
     if intent == 'timetable':
         return 'I understand you want the timetable for ' + entities['wit/datetime'] + ' but I don\'t have it yet. Sorry!'
-    elif:
+    else:
         return 'I did not understand what you said.'
