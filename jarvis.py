@@ -13,9 +13,9 @@ questions = ['I am fine. What about you ?']
 
 devs = ['Nikhil and Chetas created me :D']
 
-chutiyas = ['Vatsal Dave 😆']
+chutiyas = ['Vatsal Dave']
 
-dozers = ['Vidit Singh 😅']
+dozers = ['Vidit Singh']
 
 def extract_entities(response):
     # Extract entites from NLP response
