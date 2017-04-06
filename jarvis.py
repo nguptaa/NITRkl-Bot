@@ -11,7 +11,11 @@ greetings = ['Hello there!',
 
 questions = ['I am fine. What about you ?']
 
-devs = ['Chetas and Nikhil created me :D']
+devs = ['Nikhil and Chetas created me :D']
+
+chutiyas = ['Vatsal Dave 😆']
+
+dozers = ['Vidit Singh 😅']
 
 def extract_entities(response):
     # Extract entites from NLP response
@@ -41,5 +45,9 @@ def do(text, send):
         return random.choice(questions)
     elif intent == 'dev':
         return random.choice(devs)
+    elif intent == 'chutiya':
+        return random.choice(chutiyas)
+    elif intent == 'dozer':
+        return random.choice(dozers)
     else:
         return 'I did not understand what you said'
