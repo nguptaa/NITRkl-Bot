@@ -9,6 +9,10 @@ greetings = ['Hello there!',
              'Hello!',
              'Greetings!']
 
+questions = ['I am fine. What about you ?']
+
+devs = ['Chetas and Nikhil created me :D']
+
 def extract_entities(response):
     # Extract entites from NLP response
     entities = {}
@@ -33,5 +37,9 @@ def do(text, send):
         return 'I understand you want the timetable for ' + entities['datetime'] + ' but I don\'t have it yet. Sorry!'
     elif intent == 'greeting':
         return random.choice(greetings)
+    elif intent == 'question':
+        return random.choice(questions)
+    elif intent == 'dev':
+        return random.choice(devs)
     else:
         return 'I did not understand what you said'
