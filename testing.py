@@ -3,4 +3,4 @@
 import jarvis
 
 while 1:
-    print jarvis.do(raw_input("> "))
+    print jarvis.do(raw_input("> "), '0')
