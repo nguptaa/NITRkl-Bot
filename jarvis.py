@@ -4,6 +4,11 @@ import pickle
 
 sender_db = pickle.load(open('database.db', 'rb'))
 
+greetings = ['Hello there!',
+             'Hi!',
+             'Hello!',
+             'Greetings!']
+
 def extract_entities(response):
     # Extract entites from NLP response
     entities = {}
@@ -26,5 +31,7 @@ def do(text, send):
     entities = extract_entities(response)
     if intent == 'timetable':
         return 'I understand you want the timetable for ' + entities['datetime'] + ' but I don\'t have it yet. Sorry!'
+    elif intent == 'greeting':
+        return random.choice(greetings)
     else:
-        return 'I did not understand what you said.'
+        return 'I did not understand what you said'
