@@ -6,8 +6,7 @@ sender_db = pickle.load(open('database.db', 'rb'))
 
 greetings = ['Hello there!',
              'Hi!',
-             'Hello!',
-             'Greetings!']
+             'Hello!']
 
 questions = ['I am fine. What about you ?']
 
