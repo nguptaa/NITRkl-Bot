@@ -28,7 +28,7 @@ def extract_entities(response):
 
 def do(text, send):
     sec = text.split()
-    if sec[0] in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] and sec[1] in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
+    if sec[0] in ['H'] and sec[1] in ['9']:
         sender_db[send] = sec
         return 'You\'re in the database!'
     witClient = Wit(access_token='LFS4A4JKLBRIOCPTPNSFGBT6QR475VIG')
@@ -36,7 +36,7 @@ def do(text, send):
     intent = response['entities']['intent'][0]['value']
     entities = extract_entities(response)
     if intent == 'timetable':
-        return 'I understand you want the timetable for ' + entities['datetime'] + ' but I don\'t have it yet. Sorry!'
+        return 'I understand you want the timetable for ' + entities['datetime']
     elif intent == 'greeting':
         return random.choice(greetings)
     elif intent == 'question':
