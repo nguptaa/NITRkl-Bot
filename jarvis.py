@@ -45,4 +45,4 @@ def do(text, send):
     elif intent == 'prof':
         return random.choice(profs)
     else:
-        return 'I did not understand what you said'
+        print 'I did not understand what you said'
