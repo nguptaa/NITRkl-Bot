@@ -32,17 +32,20 @@ def do(text, send):
         return 'You\'re in the database!'
     witClient = Wit(access_token='LFS4A4JKLBRIOCPTPNSFGBT6QR475VIG')
     response = witClient.message(text)
-    intent = response['entities']['intent'][0]['value']
+    try:
+        intent = response['entities']['intent'][0]['value']
+    except KeyError:
+        intent = ''
     entities = extract_entities(response)
     if intent == 'timetable':
-        return 'I understand you want the timetable for ' + entities['datetime']
+        return 'I understand you want the timetable for' + entities['datetime']
     elif intent == 'greeting':
         return random.choice(greetings)
     elif intent == 'question':
-        return random.choice(questions)
+        return questions[0]
     elif intent == 'dev':
-        return random.choice(devs)
+        return devs[0]
     elif intent == 'prof':
-        return random.choice(profs)
+        return prof[0]
     else:
-        print 'I did not understand what you said'
+        return 'I did not understand what you said'
