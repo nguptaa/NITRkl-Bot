@@ -2,7 +2,14 @@ from wit import Wit
 import random
 import pickle
 from datetime import datetime, timedelta
+import transfer
+import heroku3, os
 
+heroku_conn = heroku3.from_key('cebe5a07-6ded-4700-a6f7-91455a65fc0c')
+app = heroku_conn.app('nitrkl-bot')
+config = app.config()
+fileurl = os.environ['FILE_URL']
+transfer.downloadFile(fileurl, 'database.db')
 sender_db = pickle.load(open('database.db', 'rb'))
 timetable_db = pickle.load(open('new_timetable.db', 'rb'))
 
@@ -34,6 +41,8 @@ def do(text, send):
     if sec[0] in ['H'] and sec[1] in ['9']:
         sender_db[send] = sec
         pickle.dump(sender_db, open('database.db', 'wb'))
+        url = transfer.uploadFile('database.db')
+        config['FILE_URL'] = url
         return 'You\'re in the database!'
     witClient = Wit(access_token='LFS4A4JKLBRIOCPTPNSFGBT6QR475VIG')
     response = witClient.message(text)
@@ -55,6 +64,8 @@ def do(text, send):
                 if a <= time < b:
                     return 'You have ' + x[2].title()
         except KeyError:
+            return 'No class'
+        else:
             return 'No class'
     elif intent == 'greeting':
         return random.choice(greetings)
