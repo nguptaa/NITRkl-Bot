@@ -44,18 +44,21 @@ def do(text, send):
     entities = extract_entities(response)
     print entities, intent
     if intent == 'timetable':
-        time = datetime.strptime(entities['datetime'], '%Y-%m-%dT%H:%M:%S.000-07:00')
-        tstr = time.strftime('%A %H %M').split()
-        sec = sender_db[send][0]
-        day_tt = timetable_db[tstr[0]][sec]
-        for x in day_tt:
-            a = time.strptime(x[0], '%H:%M%p')
-            a = timedelta(hours=a.hour, minutes=a.minute)
-            b = time.strptime(x[1], '%H:%M%p')
-            b = timedelta(hours=b.hour, minutes=b.minute)
-            y = time - datetime(1900, 1, 1)
-            if y>=a or b>=y:
-                return 'You have ' + x[2].title()
+        try:
+            time = datetime.strptime(entities['datetime'], '%Y-%m-%dT%H:%M:%S.000-07:00')
+            tstr = time.strftime('%A %H %M').split()
+            sec = sender_db[send][0]
+            day_tt = timetable_db[tstr[0]][sec]
+            for x in day_tt:
+                a = time.strptime(x[0], '%H:%M%p')
+                a = timedelta(hours=a.hour, minutes=a.minute)
+                b = time.strptime(x[1], '%H:%M%p')
+                b = timedelta(hours=b.hour, minutes=b.minute)
+                y = time - datetime(1900, 1, 1)
+                if y>=a or b>=y:
+                    return 'You have ' + x[2].title()
+        except KeyError:
+            return 'No class'
     elif intent == 'greeting':
         return random.choice(greetings)
     elif intent == 'question':
