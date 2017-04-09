@@ -17,8 +17,6 @@ greetings = ['Hello there!',
              'Hi!',
              'Hello!']
 
-questions = ['I am fine. What about you ?']
-
 devs = ['Nikhil and Chetas created me :D']
 
 profs = ['Prof. Pabitra Mohan Khilar']
@@ -65,8 +63,6 @@ def do(text, send):
             return 'No class'
     elif intent == 'greeting':
         return random.choice(greetings)
-    elif intent == 'question':
-        return questions[0]
     elif intent == 'dev':
         return devs[0]
     elif intent == 'prof':
