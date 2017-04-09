@@ -6,27 +6,27 @@ S'H'
 p3
 (lp4
 (lp5
-S'8AM'
+S'8:00AM'
 p6
-aS'9AM'
+aS'9:00AM'
 p7
 aS'DATA STRUCTURE'
 p8
 aa(lp9
 g7
-aS'10AM'
+aS'10:00AM'
 p10
 aS'PHYSICS'
 p11
 aa(lp12
 g10
-aS'11AM'
+aS'11:00AM'
 p13
 aS'BASIC ELECTRICAL'
 p14
 aa(lp15
 g13
-aS'12PM'
+aS'12:00PM'
 p16
 aS'OFF'
 p17
