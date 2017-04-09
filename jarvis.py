@@ -52,7 +52,7 @@ def do(text, send):
             for x in day_tt:
                 a = time.strptime(x[0] + tstr[3], '%H:%M%p-%Y-%m-%d')
                 b = time.strptime(x[1] + tstr[3], '%H:%M%p-%Y-%m-%d')
-                if a <= time <= b:
+                if a <= time < b:
                     return 'You have ' + x[2].title()
         except KeyError:
             return 'No class'
@@ -66,4 +66,3 @@ def do(text, send):
         return prof[0]
     else:
         return 'I did not understand what you said'
-    return 'Something inside me fucked up'
