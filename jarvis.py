@@ -46,16 +46,13 @@ def do(text, send):
     if intent == 'timetable':
         try:
             time = datetime.strptime(entities['datetime'], '%Y-%m-%dT%H:%M:%S.000-07:00')
-            tstr = time.strftime('%A %H %M').split()
+            tstr = time.strftime('%A %H %M -%Y-%m-%d').split()
             sec = sender_db[send][0]
             day_tt = timetable_db[tstr[0]][sec]
             for x in day_tt:
-                a = time.strptime(x[0], '%H:%M%p')
-                a = timedelta(hours=a.hour, minutes=a.minute)
-                b = time.strptime(x[1], '%H:%M%p')
-                b = timedelta(hours=b.hour, minutes=b.minute)
-                y = time - datetime(1900, 1, 1)
-                if y>=a or b>=y:
+                a = time.strptime(x[0] + tstr[3], '%H:%M%p-%Y-%m-%d')
+                b = time.strptime(x[1] + tstr[3], '%H:%M%p-%Y-%m-%d')
+                if a <= time <= b:
                     return 'You have ' + x[2].title()
         except KeyError:
             return 'No class'
@@ -69,3 +66,4 @@ def do(text, send):
         return prof[0]
     else:
         return 'I did not understand what you said'
+    return 'Something inside me fucked up'
