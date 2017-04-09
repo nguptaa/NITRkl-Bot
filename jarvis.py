@@ -8,7 +8,7 @@ import heroku3, os
 heroku_conn = heroku3.from_key('cebe5a07-6ded-4700-a6f7-91455a65fc0c')
 app = heroku_conn.app('nitrkl-bot')
 config = app.config()
-fileurl = os.environ['FILE_URL']
+fileurl = config['FILE_URL']
 transfer.downloadFile(fileurl, 'database.db')
 sender_db = pickle.load(open('database.db', 'rb'))
 timetable_db = pickle.load(open('new_timetable.db', 'rb'))
@@ -16,8 +16,6 @@ timetable_db = pickle.load(open('new_timetable.db', 'rb'))
 greetings = ['Hello there!',
              'Hi!',
              'Hello!']
-
-times = [['8:00AM','9:00AM'], ['9:00AM', '10:00AM'], ['10:00AM', '11:00AM'], ['11:00AM', '12:00PM'], ['12:00PM', '1:15PM'], ['1:15PM', '2:15PM'], ['2:15PM', '3:15PM'], ['3:15PM', '4:15PM'], ['4:15PM', '5:15PM']]
 
 questions = ['I am fine. What about you ?']
 
@@ -59,13 +57,11 @@ def do(text, send):
             sec = sender_db[send][0]
             day_tt = timetable_db[tstr[0]][sec]
             for x in day_tt:
-                a = time.strptime(x[0] + tstr[3], '%H:%M%p-%Y-%m-%d')
-                b = time.strptime(x[1] + tstr[3], '%H:%M%p-%Y-%m-%d')
+                a = time.strptime(x[0] + tstr[3], '%I:%M%p-%Y-%m-%d')
+                b = time.strptime(x[1] + tstr[3], '%I:%M%p-%Y-%m-%d')
                 if a <= time < b:
                     return 'You have ' + x[2].title()
         except KeyError:
-            return 'No class'
-        else:
             return 'No class'
     elif intent == 'greeting':
         return random.choice(greetings)
