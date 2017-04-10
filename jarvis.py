@@ -50,7 +50,7 @@ def do(text, send):
     print entities, intent
     if intent == 'timetable':
         try:
-            time = datetime.strptime(entities['datetime'], '%Y-%m-%dT%H:%M:%S.000-07:00')
+            time = datetime.strptime(entities['datetime'], '%Y-%m-%dT%H:%M:%S.000+05:30')
             tstr = time.strftime('%A %H %M -%Y-%m-%d').split()
             sec = sender_db[send][0]
             day_tt = timetable_db[tstr[0]][sec]
