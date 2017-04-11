@@ -17,7 +17,7 @@ greetings = ['Hello there!',
              'Hi!',
              'Hello!']
 
-devs = ['Nikhil and Chetas created me :D']
+devs = ['Nikhil and Anand created me :D']
 
 profs = ['Prof. Pabitra Mohan Khilar']
 
