@@ -66,6 +66,6 @@ def do(text, send):
     elif intent == 'dev':
         return devs[0]
     elif intent == 'prof':
-        return prof[0]
+        return profs[0]
     else:
         return 'I did not understand what you said'
