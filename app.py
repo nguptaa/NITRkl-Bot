@@ -34,7 +34,7 @@ def handle_incoming_messages():
     except:
         pass
 
-    return "ok":200
+    return "ok"
 
 if __name__ == '__main__':
     app.run(debug=True)
