@@ -37,7 +37,7 @@ def do(text, send):
         pickle.dump(sender_db, open('database.db', 'wb'))
         url = transfer.uploadFile('database.db')
         config['FILE_URL'] = url
-        return 'You\'re in the database!'
+        return 'You\'re in the database. Please enter class'
     witClient = Wit(access_token='LFS4A4JKLBRIOCPTPNSFGBT6QR475VIG')
     response = witClient.message(text)
     try:
