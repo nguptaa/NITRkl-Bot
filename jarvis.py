@@ -19,8 +19,6 @@ greetings = ['Hello there!',
 
 devs = ['Nikhil and chetas created me :D']
 
-profs = ['Prof. Pabitra Mohan Khilar']
-
 def extract_entities(response):
     # Extract entites from NLP response
     entities = {}
@@ -65,7 +63,5 @@ def do(text, send):
         return random.choice(greetings)
     elif intent == 'dev':
         return devs[0]
-    elif intent == 'prof':
-        return profs[0]
     else:
         return 'I did not understand what you said'
