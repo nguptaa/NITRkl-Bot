@@ -6,7 +6,7 @@ from flask import Flask, request
 import requests
 import jarvis
 
-app = Flask(name)
+app = Flask(__name__)
 
 ACCESS_TOKEN = "EAAUa1N8qPX4BABYrmVQ9V5fwnZCSz8ZBgSg73HhQzkltZAKZAzqya8gz3T0jZCzWurkfSifTF0F8QpBHdpGvcCdkKWCZAqNU45Vgd6Q4xW1UFhOnJZAxiD7kZA6bsNfWvLA2cr3ppMRH9JVXxhQs28AVySvrxvg2WIBZBG98LsD768QZDZD"
 
