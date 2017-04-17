@@ -3,7 +3,7 @@ import pickle, string, os
 time_table = pickle.load(open('class_timetable.db', 'rb'))
 
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-sections = ['H', 'G']
+sections = ['H', 'G', 'I']
 times = [['8:00AM','9:00AM'], ['9:00AM', '10:00AM'], ['10:00AM', '11:00AM'], ['11:00AM', '12:00PM'], ['12:00PM', '1:15PM'], ['1:15PM', '2:15PM'], ['2:15PM', '3:15PM'], ['3:15PM', '4:15PM'], ['4:15PM', '5:15PM']]
 times2 = [['8AM','9AM'], ['9AM', '10AM'], ['10AM', '11AM'], ['11AM', '12PM'], ['12PM', '1:15PM'], ['1:15PM', '2:15PM'], ['2:15PM', '3:15PM'], ['3:15PM', '4:15PM'], ['4:15PM', '5:15PM']]
 
