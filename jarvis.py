@@ -15,7 +15,7 @@ timetable_db = pickle.load(open('new_timetable.db', 'rb'))
 
 greetings = ['Hello there!',
              'Hi!',
-             'Hello']
+             'Hello!']
 
 devs = ['Nikhil and chetas created me :D']
 
@@ -37,7 +37,7 @@ def do(text, send):
         pickle.dump(sender_db, open('database.db', 'wb'))
         url = transfer.uploadFile('database.db')
         config['FILE_URL'] = url
-        return 'You\'re in the database. Please enter time'
+        return 'You\'re in the database.'
     witClient = Wit(access_token='LFS4A4JKLBRIOCPTPNSFGBT6QR475VIG')
     response = witClient.message(text)
     try:
