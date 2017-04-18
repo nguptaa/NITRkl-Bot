@@ -15,7 +15,7 @@ timetable_db = pickle.load(open('new_timetable.db', 'rb'))
 
 greetings = ['Hello there!',
              'Hi!',
-             'Hello!']
+             'Hello']
 
 devs = ['Nikhil and chetas created me :D']
 
