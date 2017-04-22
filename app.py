@@ -23,7 +23,7 @@ def reply(user_id, msg):
 def handle_verification():
     return request.args['hub.challenge']
 
-@app.route('/', methods=['POST'])
+@app.route('', methods=['POST'])
 def handle_incoming_messages():
     try:
         data = request.json
