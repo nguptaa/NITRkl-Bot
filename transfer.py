@@ -1,7 +1,7 @@
 import requests, shutil
 
 def uploadFile(filename):
-    with open(filename, 'rb') as a:
+    with open(filename, 'rb') as f:
         try:
             res = requests.put("https://transfer.sh/" + filename, a)
             f.close()
