@@ -19,11 +19,11 @@ def reply(user_id, msg):
     resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
 
-@app.route('', methods=['GET'])
+@app.route('/', methods=['GET'])
 def handle_verification():
     return request.args['hub.challenge']
 
-@app.route('', methods=['POST'])
+@app.route('/', methods=['POST'])
 def handle_incoming_messages():
     try:
         data = request.json
