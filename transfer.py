@@ -1,4 +1,4 @@
-import requests, shutil
+import requests, shutil, pickle
 
 def uploadFile(filename):
     with open(filename, 'rb') as f:
