@@ -1,4 +1,4 @@
-import requests, shutil, pickle
+import requests, shutil
 
 def uploadFile(filename):
     with open(filename, 'rb') as f:
@@ -8,7 +8,7 @@ def uploadFile(filename):
             return res.text
         except Exception as e:
             print e
-            return ' '
+            return ''
 
 def downloadFile(url, filename):
     r = requests.get(url, stream=True)
