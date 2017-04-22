@@ -3,7 +3,7 @@ import requests, shutil
 def uploadFile(filename):
     with open(filename, 'rb') as f:
         try:
-            res = requests.put("https://transfer.sh/" + filename, )
+            res = requests.put("https://transfer.sh/" + filename, a)
             f.close()
             return res.text
         except Exception as e:
