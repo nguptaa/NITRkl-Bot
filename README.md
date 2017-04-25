@@ -1,3 +1,2 @@
 # NITRkl-Bot
-Chat Bot for NIT Rkl
-
+Chat Bot for NIT Rourkela
