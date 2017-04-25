@@ -19,8 +19,6 @@ greetings = ['Hello there!',
 
 devs = ['Nikhil and chetas created me :D']
 
-
-
 def extract_entities(response):
     # Extract entites from NLP response
     entities = {}
