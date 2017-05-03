@@ -63,5 +63,5 @@ def do(text, send):
         return random.choice(greetings)
     elif intent == 'dev':
         return devs[0]
-    else
+    else:
         return 'I did not understand what you said'
