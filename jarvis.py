@@ -68,4 +68,4 @@ def do(text, send):
     elif intent == 'dcip':
         return getIp()
     else:
-        return 'I did not understand what you said'
+        return 'I did not understand what you just said'
