@@ -7,6 +7,7 @@ import requests
 import jarvis
 
 app = Flask(__name__)
+
 ACCESS_TOKEN = "EAAUa1N8qPX4BABYrmVQ9V5fwnZCSz8ZBgSg73HhQzkltZAKZAzqya8gz3T0jZCzWurkfSifTF0F8QpBHdpGvcCdkKWCZAqNU45Vgd6Q4xW1UFhOnJZAxiD7kZA6bsNfWvLA2cr3ppMRH9JVXxhQs28AVySvrxvg2WIBZBG98LsD768QZDZD"
 
 def reply(user_id, msg):
@@ -15,7 +16,7 @@ def reply(user_id, msg):
         "recipient": {"id": user_id},
         "message": {"text": msg}
     }
-    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + heroku , json=data)
+    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=data)
     print(resp.content)
 
 @app.route('/', methods=['GET'])
