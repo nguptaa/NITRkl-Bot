@@ -40,4 +40,6 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 try:
+if __name__ == '__main__':
+    
     app.run(debug=False)
