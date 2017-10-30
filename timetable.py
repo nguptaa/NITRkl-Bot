@@ -18,4 +18,4 @@ for x in days:
                 if times.index(z) == times2.index(a):
                     new_table[x][y].append(z + [time_table[x][y][times.index(z)][2]])
 
-pickle.dump(new_table, open('new_timetable.db', 'rb'))
+pickle.dump(new_table, open('new_timetable.db', 'wb'))
