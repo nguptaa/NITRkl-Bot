@@ -16,7 +16,7 @@ sender_db = pickle.load(open('database.db', 'rb'))
 timetable_db = pickle.load(open('new_timetable.db', 'rb'))
 
 def getIp():
-    t = requests.get('http://nitrdchub.com/').text
+    t = requests.get('http://nitrdchub.com').text
     tree = html.fromstring(t)
     ip = tree.xpath('//*[@id="g-header"]/div/div/div[1]/div/div/div/div/h1/a')[0].text
     return ip
